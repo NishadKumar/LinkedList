@@ -216,6 +216,21 @@ public class LinkedList {
 		return count;
 	}
 	
+	public void delete(int pos){
+		if(head == null){
+			return;
+		}
+		
+		int count = 1;
+		Node temp = head;
+		while(count!=pos-1){
+			temp = temp.next;
+			count++;
+		}
+		Node next = temp.next.next;
+		temp.next = next;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -248,6 +263,13 @@ public class LinkedList {
 		llist.printMiddle();
 		
 		System.out.println("The total number of times 44 is repeated in the linked list is: "+llist.repeatedData(44));
+		System.out.println();
+		llist.push(38);
+		llist.push(62);
+		llist.printList();
+		llist.delete(2);
+		System.out.println();
+		llist.printList();
 		
 		
 	}
