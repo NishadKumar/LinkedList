@@ -147,6 +147,20 @@ public class LinkedList {
 		return current.data;
 	}
 	
+	public void printMiddle(){
+		Node slow_ptr = head;
+		Node fast_ptr = head;
+		
+		if(head!=null){
+			while(fast_ptr!=null && fast_ptr.next!=null){
+				fast_ptr = fast_ptr.next.next;
+				slow_ptr = slow_ptr.next;
+			}
+			
+			System.out.println("The middle element is [" +slow_ptr.data+"]\n");
+		}
+	}
+	
 	public int printNthNodeFromLast(Node head, int n){
 		int fromFirst = listSize()-n;
 		int count = 0;
@@ -158,6 +172,20 @@ public class LinkedList {
 		
 		return current.data;
 	}
+	
+	public int detectLoop(){
+		Node slow_p = head, fast_p = head;
+		while(slow_p!=null && fast_p!=null && fast_p.next!=null){
+			slow_p = slow_p.next;
+			fast_p = fast_p.next.next;
+			if(slow_p == fast_p){
+				System.out.println("Found loop!");
+				return 1;
+			}
+		}
+		return 0;
+	}
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -186,6 +214,9 @@ public class LinkedList {
 			}
 		int nthNode = llist.printNthNodeFromLast(llist.head, 2);
 		System.out.println(nthNode);
+		System.out.println();
+		llist.printList();
+		llist.printMiddle();
 		
 	}
 
