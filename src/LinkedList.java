@@ -231,6 +231,7 @@ public class LinkedList {
 		temp.next = next;
 	}
 	
+	//method to reverse a linked list
 	public Node reverse(Node node){
 		Node current = head;
 		Node previous = null;
