@@ -11,6 +11,7 @@ public class LinkedList {
 		}
 	}
 	
+	//prints list's size 
 	public int listSize(){
 		if(head == null)
 			return 0;
@@ -23,10 +24,13 @@ public class LinkedList {
 		return count;
 	}
 	
+	
+	
 	public int getCount(){
 		return getCountRec(head);
 	}
 	
+	//recursive approach to get size of the list
 	public int getCountRec(Node node) {
 		// TODO Auto-generated method stub
 		//Base Case
@@ -35,12 +39,13 @@ public class LinkedList {
 		
 		return 1+getCountRec(node.next);
 	}
-
+	
+	//prints the entire linked list
 	public void printList(){
-		Node n = head;
-		while(n!=null){
-			System.out.print(n.data+" ");
-			n = n.next;
+		Node temp = head;
+		while(temp!=null){
+			System.out.print(temp.data+" ");
+			temp = temp.next;
 		}
 	}
 	
@@ -108,6 +113,7 @@ public class LinkedList {
 		
 	}
 	
+	//method to search an element using non-recursive appraoch.
 	public int search(Node head, int x){
 		Node current = head;
 		int count = 0;
@@ -121,6 +127,8 @@ public class LinkedList {
 		return -1;	//data not found	
 	}
 	
+	
+	//method to search for an element using recursion
 	public boolean recursiveSearch(Node head, int x){
 		//Base case
 		if(head == null)
@@ -132,6 +140,8 @@ public class LinkedList {
 		return recursiveSearch(head.next,x);
 	}
 	
+	
+	//method to print middle element in a traditional approach calculating the mid length()
 	public int printMiddleElement(Node head){
 		if(head == null)
 			return -1;
@@ -147,6 +157,7 @@ public class LinkedList {
 		return current.data;
 	}
 	
+	//method to print middle of the linked list using 2 pointers(efficient way)
 	public void printMiddle(){
 		Node slow_ptr = head;
 		Node fast_ptr = head;
@@ -161,6 +172,7 @@ public class LinkedList {
 		}
 	}
 	
+	//method to print Nth node from the end of a linked list
 	public int printNthNodeFromLast(Node head, int n){
 		int fromFirst = listSize()-n;
 		int count = 0;
@@ -173,6 +185,8 @@ public class LinkedList {
 		return current.data;
 	}
 	
+	
+	//method that detects a loop in the linked list if any
 	public int detectLoop(){
 		Node slow_p = head, fast_p = head;
 		while(slow_p!=null && fast_p!=null && fast_p.next!=null){
@@ -186,6 +200,7 @@ public class LinkedList {
 		return 0;
 	}
 	
+	//method that counts the number of occurrences of a particular data in the list
 	public int repeatedData(int data){
 		int count = 0;
 		if(head == null)
