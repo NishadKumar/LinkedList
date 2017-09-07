@@ -246,6 +246,13 @@ public class LinkedList {
 		return previous;
 	}
 	
+	public void deleteNode(Node node_ptr){
+		Node temp = node_ptr.next;
+		node_ptr.data = temp.data;
+		node_ptr.next = temp.next;
+		temp = null;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -284,12 +291,14 @@ public class LinkedList {
 		llist.printList();
 		llist.delete(2);
 		System.out.println();
-		llist.printList();
+		//llist.printList();
 		
-		llist.head = llist.reverse(llist.head);
+		//llist.head = llist.reverse(llist.head);
 		System.out.println();
 		llist.printList();
-		
+		llist.deleteNode(llist.head);
+		System.out.println();
+		llist.printList();
 		
 	}
 
