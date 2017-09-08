@@ -253,6 +253,14 @@ public class LinkedList {
 		temp = null;
 	}
 	
+	public void printReverse(Node head){
+		if(head == null)
+			return;
+		
+		printReverse(head.next);
+		System.out.print(head.data+" ");
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -299,6 +307,8 @@ public class LinkedList {
 		llist.deleteNode(llist.head);
 		System.out.println();
 		llist.printList();
+		System.out.println();
+		llist.printReverse(llist.head);
 		
 	}
 
