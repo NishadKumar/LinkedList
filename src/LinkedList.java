@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 
 public class LinkedList {
 	
@@ -260,7 +262,21 @@ public class LinkedList {
 		printReverse(head.next);
 		System.out.print(head.data+" ");
 	}
-	
+	public void removeDuplicates(Node head){
+		HashSet<Integer> hs = new HashSet<Integer>();
+		Node current = head;
+		Node prev = null;
+		while(current!=null){
+			int curVal = current.data;
+			if(hs.contains(curVal)){
+				prev.next = current.next;
+			}else{
+				hs.add(curVal);
+				prev = current;
+			}
+			current = current.next;
+		}
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -309,6 +325,9 @@ public class LinkedList {
 		llist.printList();
 		System.out.println();
 		llist.printReverse(llist.head);
+		llist.removeDuplicates(llist.head);
+		System.out.println();
+		llist.printList();
 		
 	}
 
